@@ -15,9 +15,11 @@ COPY docker/composer /usr/local/bin/composer
 
 COPY project /var/www/html
 RUN chown -R www-data:www-data /var/www/html
+RUN chmod -R ug+w /var/www/html
+
 
 RUN cd /var/www/html \
-    && composer install --optimize-autoloader --no-dev --no-interaction
+ && composer install --optimize-autoloader --no-dev --no-interaction
 
 CMD [ "/usr/bin/supervisord" ]
 EXPOSE 80

@@ -13,7 +13,9 @@ class AgencyController extends Controller
      */
     public function index()
     {
-        $agencies = Agency::orderBy('name')->get();
+
+
+        $agencies = Agency::orderBy('name')->withCount('caregivers')->paginate(20);
 
         return view('agencies.index', compact('agencies'));
     }

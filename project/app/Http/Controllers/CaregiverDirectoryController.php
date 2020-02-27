@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Caregiver;
 class CaregiverDirectoryController extends Controller
 {
     /**
@@ -11,6 +11,6 @@ class CaregiverDirectoryController extends Controller
      */
     public function __invoke()
     {
-        return view('caregivers-directory');
+      return view('caregivers-directory');
     }
 }

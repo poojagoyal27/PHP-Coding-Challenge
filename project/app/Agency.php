@@ -18,6 +18,8 @@ class Agency extends Model
      */
     public function caregivers()
     {
+      
+
         return $this->hasMany(Caregiver::class);
     }
 }
