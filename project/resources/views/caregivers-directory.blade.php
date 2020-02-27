@@ -17,24 +17,16 @@
                     </tr>
                 </thead>
                 <tbody>
+                  <!-- Iterating throught the caregiver records to get the data from database -->
+                    @foreach ($caregivers as $caregiver)
                     <tr>
-                        <td>Aaron Kutch</td>
-                        <td>heidenreich.hollis@example.net</td>
-                        <td>Home Health Aid</td>
-                        <td>Mueller Ltd Agency</td>
-                    </tr>
-                    <tr>
-                        <td>Breanna Trantow</td>
-                        <td>katherine.oberbrunner@example.net</td>
-                        <td>Occupational Therapist</td>
-                        <td>Mueller Inc Agency</td>
-                    </tr>
-                    <tr>
-                        <td>Deanna King</td>
-                        <td>ledner.terry@example.com</td>
-                        <td>Occupational Therapist</td>
-                        <td>Okuneva Inc Agency</td>
-                    </tr>
+                        <td>{{ $caregiver->name }}</td>
+                        <td>{{ $caregiver->email }}</td>
+                        <td>{{ $caregiver->position }}</td>
+                        <!-- getting the caregiver agency name -->
+                        <td>{{ ($caregiver->agency)->name }}</td>
+                      </tr>
+                    @endforeach
                 </tbody>
             </table>
 

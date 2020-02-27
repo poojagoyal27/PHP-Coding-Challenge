@@ -11,6 +11,7 @@ class CaregiverDirectoryController extends Controller
      */
     public function __invoke()
     {
-      return view('caregivers-directory');
+      //getting all the records sorted by name in alphabetical order
+      return view('caregivers-directory',['caregivers' => Caregiver::orderBy('name')->get()]);
     }
 }
