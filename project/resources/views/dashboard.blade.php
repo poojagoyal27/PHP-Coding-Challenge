@@ -49,21 +49,13 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($final_data["nurse_data"] as $nurse)
                             <tr>
-                                <td>Rosalind Johnston</td>
-                                <td>870521</td>
+                                <td>{{$nurse->name}}</td>
+                                <td>{{$nurse->license_number}}</td>
                                 <td>@include('partials.license-expiration')</td>
                             </tr>
-                            <tr>
-                                <td>Celestino Brekke</td>
-                                <td>32750</td>
-                                <td>@include('partials.license-expiration')</td>
-                            </tr>
-                            <tr>
-                                <td>Diana Koss</td>
-                                <td>717302</td>
-                                <td>@include('partials.license-expiration')</td>
-                            </tr>
+                          @endforeach
                         </tbody>
                     </table>
                 </div>
