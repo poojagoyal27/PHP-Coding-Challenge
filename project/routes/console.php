@@ -1,5 +1,8 @@
 <?php
+//namespace App\Http\Controllers;
 Use Carbon\Carbon;
+
+
 use App\Caregiver;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -22,8 +25,9 @@ use Illuminate\Support\Facades\Mail;
  * List all skilled nurse license details.
  */
 Artisan::command('licenses:list', function () {
-   $headers = ['License Owner', 'License Expiry Date'];
+    $headers = ['License Owner', 'License Expiry Date'];
     $caregivers = Caregiver::select('name','license_expiration')->whereNotNull('license_expiration')->get();
+
 
     $this->table($headers, $caregivers);
 
@@ -39,17 +43,18 @@ Artisan::command('licenses:notify-expiring-soon', function () {
   $exp_limit=Config::get('caregivers.license_renewal_reminder_in_days');
   $nurse_data= Caregiver::whereNotNull('license_expiration')->get();
   $dt     = Carbon::now();
+
   foreach($nurse_data as $caregiver)
   {
     $expiration_days= $dt->diffInDays($caregiver->license_expiration);
     if($expiration_days <$exp_limit)
     {
-      $temp_mail=new LicenseExpiring($caregiver);
-      $data=new Mailer( ['caregiver'=>$caregiver]);
-    $temp_mail->send('emails.license-expiring',$data, function ($message) {
-    //$message->from('pgoyal2795@gmail.com', 'Pooja Goyal');
-    //$message->to('pgoyal2795@gmail.com');
-});
+
+      $email = new LicenseExpiring($caregiver);
+     \Mail::to($caregiver->email)->cc('goyalpooja27@gmail.com')->send($email);
+
+
+//});
 
       //send emails script
     }

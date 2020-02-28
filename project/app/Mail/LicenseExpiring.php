@@ -37,6 +37,8 @@ class LicenseExpiring extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.license-expiring');
+    //   return $this->view('emails.license-expiring');
+
+     return $this->markdown('emails.license-expiring');
     }
 }
