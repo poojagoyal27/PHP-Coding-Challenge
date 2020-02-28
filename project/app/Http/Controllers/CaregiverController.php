@@ -60,8 +60,8 @@ class CaregiverController extends Controller
     public function destroy(Agency $agency, Caregiver $caregiver)
     {
 
-    /*   $temp_caregiver = Caregiver::findOrFail($caregiver->id);
-      $temp_caregiver->delete();  */
+       $temp_caregiver = Caregiver::findOrFail($caregiver->id);
+      $temp_caregiver->delete();  
         return redirect()
             ->route('agencies.show', $agency)
             ->with('status', 'Caregiver deleted!');

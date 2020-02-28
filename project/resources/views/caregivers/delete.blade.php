@@ -1,9 +1,7 @@
 
-<a href="javascript:void(0);" class="text-danger">
-    <small>[Delete]</small>
-</a>
 
-<!--
+
+
 <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -15,5 +13,3 @@
         <a class="text-danger"  href="#" onclick="$(this).closest('form').submit()"><sm>[Delete]</sm></a> 
 
     </form>
-
-  -->
