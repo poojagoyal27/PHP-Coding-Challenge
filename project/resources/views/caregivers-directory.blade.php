@@ -7,6 +7,10 @@
 
             <h1>Caregivers Directory</h1>
 
+            <ul class="pagination justify-content-end" style="margin:20px 0">
+                {{ $caregivers->links() }}
+            </ul>
+
             <table class="table table-sm table-bordered table-striped mt-4">
                 <thead class="thead-dark">
                     <tr>
