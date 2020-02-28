@@ -22,20 +22,8 @@ use Illuminate\Support\Facades\Mail;
  * List all skilled nurse license details.
  */
 Artisan::command('licenses:list', function () {
-/*    $headers = ['License Owner', 'License Expiry Date'];
+   $headers = ['License Owner', 'License Expiry Date'];
     $caregivers = Caregiver::select('name','license_expiration')->whereNotNull('license_expiration')->get();
-
-        //['Rosalind Johnston', '2020-01-13'],
-      //  ['Celestino Brekke', '2020-01-15'],
-      //  ['Willie Conroy', '2020-01-18'],
-*/
-$headers = ['License Owner', 'License Expiry Date'];
-    $caregivers = [
-        ['Rosalind Johnston', '2020-01-13'],
-        ['Celestino Brekke', '2020-01-15'],
-        ['Willie Conroy', '2020-01-18'],
-    ];
-
 
     $this->table($headers, $caregivers);
 
